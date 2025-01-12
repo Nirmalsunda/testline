@@ -91,16 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
           ),
-          Column(
-            children: [
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => CallLogScreen()));
-                  },
-                  child: Text('call'))
-            ],
-          )
+         
         ],
       ),
     );

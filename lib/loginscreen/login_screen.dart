@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sales_app/colors.dart';
@@ -24,7 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
       child: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
-          child: Column(
+          child: Column( 
             children: [
               Image.asset(
                 'assets/testline.png',
@@ -94,7 +96,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         )
                       : Text(
                           'Login',
-                          style: Style,
+                          style: TextStyle(color: Colors.white, fontSize: 18),
                         ),
                 ),
               )
