@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sales_app/provider/login_provider.dart';
+import 'package:sales_app/services/shared_preferences_service.dart';
 import 'package:sales_app/splash_screen/splashpage/splash_screen.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await SharedPreferencesService().initPrefs();
   runApp(MyApp());
 }
 

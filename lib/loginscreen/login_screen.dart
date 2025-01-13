@@ -26,7 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
       child: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
-          child: Column( 
+          child: Column(
             children: [
               Image.asset(
                 'assets/testline.png',
