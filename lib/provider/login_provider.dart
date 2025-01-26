@@ -31,14 +31,11 @@ class AuthProvider with ChangeNotifier {
         httpMethod: HttpMethod.Get,
       );
 
-      if (response.statusCode == 200 && response.data['success'] == true) {
+      if (response.statusCode == 200) {
         // Generate JWT token locally
         _token = getToken(email, password);
 
-        // Save the token in SharedPreferences
-        //SharedPreferences prefs = await SharedPreferences.getInstance();
         SharedPreferencesService.setAuthToken(_token!);
-        // await prefs.setString('jwt_token', _token!);
 
         _isLoggedIn = true;
         notifyListeners();
@@ -65,48 +62,34 @@ class AuthProvider with ChangeNotifier {
                 .trim());
     final payload = {'email': email, 'password': password};
     final token = jwt.encode(payload);
-    
+
     return token;
   }
 
-  /// Generate JWT Token
-  // String _generateJwtToken(String email, String password) {
-  //   // Header
-  //   final header = {"alg": "HS256", "typ": "JWT"};
-  //   final headerBase64 = base64Url.encode(utf8.encode(json.encode(header)));
-
-  //   // Payload
-  //   final payload = {"email": email, "password": password};
-  //   final payloadBase64 = base64Url.encode(utf8.encode(json.encode(payload)));
-  //   print(base64Url.decode(payloadBase64));
-  //   // Signature
-  //   final dataToSign = "$headerBase64.$payloadBase64";
-  //   final hmac = Hmac(sha256, utf8.encode(secretKey));
-  //   final signature = hmac.convert(utf8.encode(dataToSign)).bytes;
-  //   final signatureBase64 = base64Url.encode(signature);
-
-  //   return "$headerBase64.$payloadBase64.$signatureBase64";
-  // }
-
-  /// Logout method
   void logout() async {
     _token = null;
     _isLoggedIn = false;
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.remove('jwt_token');
+    SharedPreferencesService.setAuthToken(null);
+
     notifyListeners();
   }
 
   /// Auto-login method
   Future<void> tryAutoLogin() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    if (prefs.containsKey('jwt_token')) {
-      _token = prefs.getString('jwt_token');
-      if (_token != null) {
-        _isLoggedIn = true;
+    if (!SharedPreferencesService.isInitialized) {
+      print('Error: SharedPreferences is not initialized.');
+      return;
+    }
+    _token = SharedPreferencesService.getAuthToken();
+    if (_token != null) {
+      _isLoggedIn = true;
+      Future.delayed(Duration.zero, () {
         notifyListeners();
-        print('Auto-login successful! JWT Token: $_token');
-      }
+      });
+
+      print('Auto-login successful! JWT Token: $_token');
+    } else {
+      print('No valid token found. Auto-login failed.');
     }
   }
 }

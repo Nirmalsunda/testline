@@ -12,7 +12,7 @@ class Mydrawer extends StatelessWidget {
       child: ListView(
         children: [
           DrawerHeader(
-              decoration: BoxDecoration(color: primarycolor),
+              decoration: BoxDecoration(color: tlprimarycolor),
               child: Column(
                 children: [
                   ClipOval(

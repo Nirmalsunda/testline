@@ -15,7 +15,7 @@ class StatCard extends StatelessWidget {
       width: 100,
       padding: EdgeInsets.all(12),
       decoration: BoxDecoration(
-          color: secondarycolor,
+          color: tlsecondarycolor,
           borderRadius: BorderRadius.circular(8),
           boxShadow: [BoxShadow(color: Colors.black12)]),
       child: Column(

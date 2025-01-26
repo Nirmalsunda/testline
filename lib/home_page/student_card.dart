@@ -25,7 +25,7 @@ class StudentCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(12.0),
       child: Card(
-        color: secondarycolor,
+        color: tlsecondarycolor,
         elevation: 10,
         //shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(216)),
         child: Padding(

@@ -1,13 +1,11 @@
 import 'dart:async';
 import 'dart:io';
-
 // Package imports:
 import 'package:dio/dio.dart';
 import 'package:firebase_performance/firebase_performance.dart';
 // import 'package:firebase_performance/firebase_performance.dart';
 import 'package:retry/retry.dart';
 import 'package:sales_app/services/shared_preferences_service.dart';
-
 
 // Project imports:
 
@@ -30,7 +28,7 @@ class DioConfig {
     requestHeaders = {
       'Content-Type': 'application/json',
       'Accept': 'application/json;charset=UTF-8',
-      if (hasInitToken) 'Authorization': token ??'',
+      if (hasInitToken) 'Authorization': token ?? '',
       'User-Agent': Platform.isAndroid ? 'Android' : 'iOS',
     };
 
