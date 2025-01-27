@@ -89,25 +89,25 @@ class _UserScreenState extends State<UserScreen> {
                               SizedBox(
                                 height: 10,
                               ),
-                              _buildSkeletonText(250, 10), // id ,coin
+                              _buildSkeletonText(250, 10), 
                               SizedBox(
                                 height: 7,
                               ),
-                              _buildSkeletonText(250, 10), //name
+                              _buildSkeletonText(250, 10), 
                               SizedBox(height: 9),
-                              _buildSkeletonText(250, 10), //contact
+                              _buildSkeletonText(250, 10), 
                               SizedBox(height: 13),
-                              _buildSkeletonText(220, 7), // Exam
+                              _buildSkeletonText(220, 7), 
                               SizedBox(height: 10),
-                              _buildSkeletonText(250, 10), // Subject
+                              _buildSkeletonText(250, 10),
                               SizedBox(height: 12),
-                              _buildSkeletonText(250, 10), // Test
+                              _buildSkeletonText(250, 10), 
                               SizedBox(height: 6),
-                              _buildSkeletonText(250, 5), // Career
+                              _buildSkeletonText(250, 5), 
                               SizedBox(height: 12),
-                              _buildSkeletonText(200, 10), // Attempt
+                              _buildSkeletonText(200, 10), 
                               SizedBox(height: 7),
-                              _buildSkeletonText(250, 10), // Target
+                              _buildSkeletonText(250, 10),
                             ],
                           ),
                           baseColor: const Color.fromARGB(120, 158, 158, 158)!,

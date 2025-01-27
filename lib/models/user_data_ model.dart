@@ -1,4 +1,3 @@
-
 class UserData {
   final int id;
   final String? name;
@@ -31,7 +30,7 @@ class UserData {
   final int betterThan;
   final List<String>? firebaseTopics;
   final bool onboardingRequired;
- UserData({
+  UserData({
     required this.id,
     this.name,
     required this.coins,
@@ -64,7 +63,7 @@ class UserData {
     this.firebaseTopics,
     required this.onboardingRequired,
   });
- factory UserData.fromJson(Map<String, dynamic> json) {
+  factory UserData.fromJson(Map<String, dynamic> json) {
     return UserData(
       id: json['id'] ?? 0,
       name: json['name']?.isNotEmpty == true ? json['name'] : 'Unknown',
@@ -73,7 +72,7 @@ class UserData {
       updatedAt: DateTime.parse(json['updated_at']),
       referrerCode: json['referrer_code'],
       phone: json['phone'],
-      exam: json['exam'],
+      exam: json['exam'] ,
       district: _parseNullableInt(json['district']),
       email: json['email'],
       source: json['source'],
@@ -109,12 +108,12 @@ class UserData {
       return null;
     }
     if (value is int) {
-      return value; 
+      return value;
     }
     if (value is String) {
-      return int.tryParse(value); 
+      return int.tryParse(value);
     }
-    return null; 
+    return null;
   }
 }
 
