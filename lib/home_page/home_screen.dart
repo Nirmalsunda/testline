@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sales_app/call%20_log/ui_call_log.dart';
 import 'package:sales_app/colors.dart';
+import 'package:sales_app/home_page/navigation/bottom_navbar.dart';
 import 'package:sales_app/home_page/drawer.dart';
 import 'package:sales_app/home_page/stat_card.dart';
 import 'package:sales_app/home_page/student_card.dart';
@@ -40,7 +41,8 @@ class _HomeScreenState extends State<HomeScreen> {
       drawer: Mydrawer(),
       body: Column(
         children: [
-          UserScreen(),
+          //Expanded(child: UserScreen()),
+          Expanded(child: BottomNavBar())
         ],
       ),
     );

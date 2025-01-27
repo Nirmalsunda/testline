@@ -64,7 +64,7 @@ class _UserScreenState extends State<UserScreen> {
             children: [
               Container(
                   width: MediaQuery.of(context).size.width * 0.8,
-                  height: 300,
+                  height: 410,
                   //margin: const EdgeInsets.symmetric(horizontal: 16.0),
                   padding: const EdgeInsets.all(20),
                   decoration: BoxDecoration(
@@ -89,25 +89,35 @@ class _UserScreenState extends State<UserScreen> {
                               SizedBox(
                                 height: 10,
                               ),
-                              _buildSkeletonText(250, 10), 
+                              _buildSkeletonText(250, 10),
                               SizedBox(
                                 height: 7,
                               ),
-                              _buildSkeletonText(250, 10), 
+                              _buildSkeletonText(250, 10),
                               SizedBox(height: 9),
-                              _buildSkeletonText(250, 10), 
+                              _buildSkeletonText(250, 10),
                               SizedBox(height: 13),
-                              _buildSkeletonText(220, 7), 
+                              _buildSkeletonText(220, 7),
                               SizedBox(height: 10),
                               _buildSkeletonText(250, 10),
                               SizedBox(height: 12),
-                              _buildSkeletonText(250, 10), 
+                              _buildSkeletonText(250, 10),
                               SizedBox(height: 6),
-                              _buildSkeletonText(250, 5), 
+                              _buildSkeletonText(250, 5),
                               SizedBox(height: 12),
-                              _buildSkeletonText(200, 10), 
+                              _buildSkeletonText(200, 10),
                               SizedBox(height: 7),
                               _buildSkeletonText(250, 10),
+                              _buildSkeletonText(250, 10),
+                              SizedBox(height: 12),
+                              _buildSkeletonText(250, 10),
+                              SizedBox(height: 15),
+                              _buildSkeletonText(250, 10),
+                              SizedBox(height: 19),
+                              _buildSkeletonText(250, 10),
+                              SizedBox(height: 20),
+                              _buildSkeletonText(250, 10),
+                              SizedBox(height: 9),
                             ],
                           ),
                           baseColor: const Color.fromARGB(120, 158, 158, 158)!,
@@ -125,51 +135,72 @@ class _UserScreenState extends State<UserScreen> {
                                   style: userstyle)
                             ])),
                             const SizedBox(
-                              height: 6,
+                              height: 8,
                             ),
                             Text(
                               'Name :  ${userprovider.currentUser!.name}',
                               style: userstyle,
                             ),
-                            const SizedBox(height: 6),
+                            const SizedBox(height: 8),
                             Text(
                               'Contact :  ${userprovider.currentUser!.phone}',
                               style: userstyle,
                             ),
                             const SizedBox(
-                              height: 6,
+                              height: 8,
                             ),
                             Text(
                               'Exam :  ${userprovider.currentUser!.exam}',
                               style: userstyle,
                             ),
                             const SizedBox(
-                              height: 6,
+                              height: 8,
                             ),
                             Text(
                               'Subject :  ${userprovider.currentUser!.subject}',
                               style: userstyle,
                             ),
-                            const SizedBox(height: 6),
+                            const SizedBox(height: 8),
                             Text(
                               'Test :  ${userprovider.currentUser!.completedTests}',
                               style: userstyle,
                             ),
-                            const SizedBox(height: 6),
+                            const SizedBox(height: 8),
                             Text(
                               'Career :  ${userprovider.currentUser!.careerStage}',
                               style: userstyle,
                             ),
-                            const SizedBox(height: 6),
+                            const SizedBox(height: 8),
                             Text(
                               'Attempt :  ${userprovider.currentUser!.attempt}',
                               style: userstyle,
                             ),
                             const SizedBox(
-                              height: 6,
+                              height: 8,
                             ),
                             Text(
                               'Target :  ${userprovider.currentUser!.target}',
+                              style: userstyle,
+                            ),
+                            const SizedBox(
+                              height: 8,
+                            ),
+                            Text(
+                              'Guidance :  ${userprovider.currentUser!.needGuidance}',
+                              style: userstyle,
+                            ),
+                            const SizedBox(
+                              height: 8,
+                            ),
+                            Text(
+                              'District :  ${userprovider.currentUser!.district}',
+                              style: userstyle,
+                            ),
+                            const SizedBox(
+                              height: 8,
+                            ),
+                            Text(
+                              'Type :  ${userprovider.currentUser!.studentType}',
                               style: userstyle,
                             )
                           ],
@@ -178,7 +209,7 @@ class _UserScreenState extends State<UserScreen> {
           ),
         ),
         SizedBox(
-          height: 20,
+          height: 40,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
