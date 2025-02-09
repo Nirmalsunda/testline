@@ -8,8 +8,16 @@ class CallLogProvider extends ChangeNotifier {
   Future<void> fetchLogs(BuildContext context) async {
     isLoading = true;
     notifyListeners();
+    
     CallLogService callLogService = CallLogService();
-    _callLogs = await callLogService.fetchFilteredLogs(context);
+
+    _callLogs = callLogService.getSavedLogs();
+    notifyListeners();
+    List<Map<String, dynamic>> fetchedLogs =
+        await callLogService.fetchFilteredLogs(context);
+    if (fetchedLogs.isNotEmpty) {
+      _callLogs = fetchedLogs;
+    }
     isLoading = false;
     notifyListeners();
   }

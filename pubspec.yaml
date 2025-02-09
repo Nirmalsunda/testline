@@ -46,6 +46,10 @@ dependencies:
   font_awesome_flutter: ^10.8.0 
   call_e_log: ^0.0.4
   permission_handler: ^11.0.0
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  path_provider: ^2.0.15
+  url_launcher: ^6.1.14 
  
  
   
@@ -55,6 +59,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+    
     
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

@@ -1,3 +1,4 @@
+import 'package:hive/hive.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:call_e_log/call_log.dart';
 import 'package:provider/provider.dart';
@@ -16,6 +17,20 @@ class CallLogService {
     return userProvider.currentUser?.phone;
   }
 
+/////////////////////
+
+  Future<void> SaveCallLogs(List<Map<String, dynamic>> logs) async {
+    final box = Hive.box('callLogs');
+    await box.put('logs', logs);
+  }
+
+  List<Map<String, dynamic>> getSavedLogs() {
+    final box = Hive.box('callLogs');
+    return List<Map<String, dynamic>>.from(box.get('logs', defaultValue: []));
+  }
+
+////////////////////
+
   Future<List<Map<String, dynamic>>> fetchFilteredLogs(context) async {
     if (await requestCallLogPermission()) {
       print('Call log permission Granted');
@@ -26,8 +41,7 @@ class CallLogService {
         return [];
       }
       Iterable<CallLogEntry> entries = await CallLog.get();
-
-      return entries
+      List<Map<String, dynamic>> logs = entries
           .where((entry) => entry.number == userPhoneNumber)
           .map((entry) => {
                 "name": entry.name ?? "Unknown",
@@ -38,6 +52,8 @@ class CallLogService {
                 "duration": entry.duration ?? 0,
               })
           .toList();
+      await SaveCallLogs(logs);
+      return logs;
     } else {
       print('Permission Denied');
       return [];
