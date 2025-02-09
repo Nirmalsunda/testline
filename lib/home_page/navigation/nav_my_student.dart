@@ -1,15 +1,12 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:sales_app/call%20_log/call_log_screen.dart';
 
 class NavMyStudent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text(
-            'The data for this feature is not available right now.\n It will be loaded soon.'),
-      ),
-    );
+    return CallLogScreen();
+   
   }
 }

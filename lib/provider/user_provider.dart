@@ -39,4 +39,8 @@ class UserProvider extends ChangeNotifier {
     currentUserId++;
     fetchUser();
   }
+
+  String? getUserPhoneNumber() {
+    return currentUser?.phone;
+  }
 }

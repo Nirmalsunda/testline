@@ -1,13 +1,18 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sales_app/colors.dart';
 import 'package:sales_app/loginscreen/login_screen.dart';
 import 'package:sales_app/provider/login_provider.dart';
+import 'package:sales_app/provider/user_provider.dart';
 
 class Mydrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final authprovider = Provider.of<AuthProvider>(context);
+    //final userprovider = Provider.of<UserProvider>(context);
+
     return Drawer(
       child: ListView(
         children: [
@@ -17,7 +22,7 @@ class Mydrawer extends StatelessWidget {
                 children: [
                   ClipOval(
                     child: Image.asset(
-                      "assets/logo.png",
+                      "assets/Fingerprint.png",
                       height: 70,
                       width: 70,
                       fit: BoxFit.cover,
@@ -27,7 +32,7 @@ class Mydrawer extends StatelessWidget {
                     height: 10,
                   ),
                   Text(
-                    'vivek_ola',
+                    'Sales Manager',
                     style: TextStyle(fontSize: 20, color: white),
                   )
                 ],

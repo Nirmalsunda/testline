@@ -6,9 +6,8 @@ class NavPurchase extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-            body: Center(
-        child: Text(
-            'The data for this feature is not available right now.\n It will be loaded soon.'),
+      body: Center(
+        child: Text('Empty'),
       ),
     );
   }
