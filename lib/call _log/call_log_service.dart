@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:hive/hive.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:call_e_log/call_log.dart';
@@ -58,5 +60,13 @@ class CallLogService {
       print('Permission Denied');
       return [];
     }
+  }
+
+  int getTotalCallCount() {
+    return getSavedLogs().length;
+  }
+
+  int getConnectedCallCount() {
+    return getSavedLogs().where((log) => log["duration"] > 0).length;
   }
 }

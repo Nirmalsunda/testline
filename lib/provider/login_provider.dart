@@ -5,14 +5,14 @@ import 'package:sales_app/services/shared_preferences_service.dart';
 import 'package:sales_app/utils/json_web_token.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:dio/dio.dart';
-import 'dart:convert'; // For base64 encoding
-import 'package:crypto/crypto.dart'; // For HMAC SHA-256
-
+import 'dart:convert'; 
+import 'package:crypto/crypto.dart'; 
 class AuthProvider with ChangeNotifier {
   bool _isLoggedIn = false;
   String? _token;
   bool get isLoggedin => _isLoggedIn;
   String? get token => _token;
+  
 
   final Dio dio = Dio();
   static const String secretKey =
@@ -37,10 +37,14 @@ class AuthProvider with ChangeNotifier {
 
         SharedPreferencesService.setAuthToken(_token!);
 
+        SharedPreferencesService.setUserEmail(email);
+
         _isLoggedIn = true;
+
         notifyListeners();
 
         print('Login successful! JWT Token: $_token');
+          print('User Email Saved: $email');
         return true;
       } else {
         print('Login failed: ${response.data['message']}');
@@ -54,6 +58,7 @@ class AuthProvider with ChangeNotifier {
     }
     return false;
   }
+
 
   static String getToken(String email, String password) {
     final jwt = JsonWebTokenCodec(
@@ -70,6 +75,7 @@ class AuthProvider with ChangeNotifier {
     _token = null;
     _isLoggedIn = false;
     SharedPreferencesService.setAuthToken(null);
+    SharedPreferencesService.setUserEmail(null);
 
     notifyListeners();
   }

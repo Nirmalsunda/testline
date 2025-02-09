@@ -7,6 +7,7 @@ class SharedPreferencesService {
   static late SharedPreferences prefs;
   static const String _authToken = "_authToken";
   static const String _preference = "_preference";
+  static const String _userEmail = "_userEmail"; //  Email Key
 
   Future<bool> initPrefs() async {
     try {
@@ -34,5 +35,18 @@ class SharedPreferencesService {
 
   static String? getAuthToken() {
     return prefs.getString(_authToken);
+  }
+
+//Email Store
+  static void setUserEmail(String? email) {
+    if (email == null) {
+      prefs.remove(_userEmail);
+    } else {
+      prefs.setString(_userEmail, email);
+    }
+  }
+
+  static String? getUserEmail() {
+    return prefs.getString(_userEmail);
   }
 }

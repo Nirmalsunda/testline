@@ -16,7 +16,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   final List<Widget> _screen = [
     UserScreen(),
     NavPurchase(),
-    NavMyStudent(),
+    NavCallHistory(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.wallet), label: 'Purchase'),
-          BottomNavigationBarItem(icon: Icon(Icons.group), label: 'My student')
+          BottomNavigationBarItem(icon: Icon(Icons.group), label: 'Call')
         ],
       ),
     ]);

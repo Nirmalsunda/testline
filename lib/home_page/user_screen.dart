@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sales_app/colors.dart';
 import 'package:sales_app/home_page/view_user_detail.dart';
+import 'package:sales_app/provider/call_log_provider.dart';
 import 'package:sales_app/provider/user_provider.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -23,13 +24,15 @@ class _UserScreenState extends State<UserScreen> {
 
   Widget build(BuildContext context) {
     final userprovider = Provider.of<UserProvider>(context);
+    final callLogProvider = Provider.of<CallLogProvider>(context);
+
     return Column(
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Text(
-              'Call: 1',
+              "Call: ${callLogProvider.connectedCalls} ",
               style: userstyle,
             ),
             Column(
@@ -209,53 +212,51 @@ class _UserScreenState extends State<UserScreen> {
           ),
         ),
         SizedBox(
-          height: 40,
+          height: 30,
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) =>
-                          ViewDetailScreen(user: userprovider.currentUser!),
-                    ));
-              },
-              child: Text(
-                'View',
-                style: TextStyle(fontSize: 16),
+        ElevatedButton(
+          onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) =>
+                      ViewDetailScreen(user: userprovider.currentUser!),
+                ));
+          },
+          child: Text(
+            'View',
+            style: TextStyle(fontSize: 20),
+          ),
+          style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.black,
+              foregroundColor: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
               ),
-              style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.black,
-                  foregroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-                  elevation: 7,
-                  minimumSize: Size(100, 40)),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                userprovider.nextuser();
-              },
-              child: Text(
-                'Next',
-                style: TextStyle(fontSize: 16),
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              elevation: 7,
+              minimumSize: Size(300, 40)),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        ElevatedButton(
+          onPressed: () {
+            userprovider.nextuser();
+          },
+          child: Text(
+            'Next',
+            style: TextStyle(fontSize: 20),
+          ),
+          style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.black,
+              foregroundColor: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
               ),
-              style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.black,
-                  foregroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-                  elevation: 7,
-                  minimumSize: Size(100, 40)),
-            ),
-          ],
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              elevation: 7,
+              minimumSize: Size(300, 40)),
         ),
         // Container(height: 100, color: Colors.black)
       ],
