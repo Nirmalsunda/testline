@@ -142,7 +142,7 @@ class ViewDetailScreen extends StatelessWidget {
                           ),
                           Padding(
                             padding: const EdgeInsets.symmetric(
-                                horizontal: 10, vertical: 20),
+                                horizontal: 10, vertical: 10),
                             child: Column(
                               children: [
                                 Text(
@@ -157,7 +157,7 @@ class ViewDetailScreen extends StatelessWidget {
                             ),
                           ),
                           SizedBox(
-                            width: 140,
+                            width: 80,
                           ),
                           FaIcon(
                             FontAwesomeIcons.rightLong,
@@ -210,7 +210,7 @@ class ViewDetailScreen extends StatelessWidget {
                             ),
                           ),
                           SizedBox(
-                            width: 140,
+                            width: 80,
                           ),
                           FaIcon(
                             FontAwesomeIcons.expand,
@@ -244,7 +244,7 @@ class ViewDetailScreen extends StatelessWidget {
                   height: 20,
                 ),
                 Container(
-                  height: 140,
+                  height: 170,
                   width: MediaQuery.of(context).size.width * 0.9,
                   decoration: BoxDecoration(
                       color: Color(0xffFFFFFF),

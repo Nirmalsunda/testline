@@ -1,9 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:sales_app/home_page/navigation/nav_purchase.dart';
+import 'package:sales_app/call%20_log/api_call_screen.dart';
+import 'package:sales_app/home_page/navigation/nav_filter_call.dart';
 import 'package:sales_app/home_page/home_screen.dart';
-import 'package:sales_app/home_page/navigation/nav_my_student.dart';
+import 'package:sales_app/home_page/navigation/nav_call.dart';
 import 'package:sales_app/home_page/user_screen.dart';
 
 class BottomNavBar extends StatefulWidget {
@@ -15,16 +16,14 @@ class _BottomNavBarState extends State<BottomNavBar> {
   int _currentTab = 0;
   final List<Widget> _screen = [
     UserScreen(),
-    NavPurchase(),
+    ApiCallScreen(),
     NavCallHistory(),
   ];
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      Expanded(
-        child: _screen[_currentTab],
-      ),
-      BottomNavigationBar(
+    return Scaffold(
+      body: _screen [_currentTab],
+      bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentTab,
         onTap: (index) {
           setState(() {
@@ -33,10 +32,10 @@ class _BottomNavBarState extends State<BottomNavBar> {
         },
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.wallet), label: 'Purchase'),
-          BottomNavigationBarItem(icon: Icon(Icons.group), label: 'Call')
+          BottomNavigationBarItem(icon: Icon(Icons.wallet), label: 'Call'),
+          BottomNavigationBarItem(icon: Icon(Icons.group), label: 'AllCall')
         ],
       ),
-    ]);
+    );
   }
 }

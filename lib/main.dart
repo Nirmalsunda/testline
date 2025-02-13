@@ -1,8 +1,11 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:provider/provider.dart';
-import 'package:sales_app/provider/call_log_provider.dart';
+import 'package:sales_app/call%20_log/api_call_provider.dart';
+import 'package:sales_app/call%20_log/call_log_provider.dart';
 import 'package:sales_app/provider/login_provider.dart';
 import 'package:sales_app/provider/user_provider.dart';
 import 'package:sales_app/services/shared_preferences_service.dart';
@@ -31,15 +34,13 @@ class _MyAppState extends State<MyApp> {
         providers: [
           ChangeNotifierProvider<AuthProvider>(create: (_) => AuthProvider()),
           ChangeNotifierProvider<UserProvider>(create: (_) => UserProvider()),
+           ChangeNotifierProvider< ApiCallProvider>(create: (_) =>  ApiCallProvider()),
           ChangeNotifierProvider<CallLogProvider>(
               create: (_) => CallLogProvider())
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
-          theme: ThemeData(
-            primarySwatch: Colors.deepOrange,
-          ),
-          home: SplashScreen(),
+         home: SplashScreen(),
         ));
   }
 }
