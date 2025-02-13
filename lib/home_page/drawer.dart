@@ -2,10 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:sales_app/call%20_log/api_call_provider.dart';
+import 'package:sales_app/provider/api_call_provider.dart';
 import 'package:sales_app/colors.dart';
 import 'package:sales_app/loginscreen/login_screen.dart';
-import 'package:sales_app/call%20_log/call_log_provider.dart';
+import 'package:sales_app/provider/call_log_provider.dart';
 import 'package:sales_app/provider/login_provider.dart';
 import 'package:sales_app/provider/user_provider.dart';
 import 'package:sales_app/services/shared_preferences_service.dart';

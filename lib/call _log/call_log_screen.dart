@@ -1,14 +1,13 @@
-// ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sales_app/colors.dart';
-import 'call_log_provider.dart';
+import '../provider/call_log_provider.dart';
 
 class CallLogScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // Access the CallLogProvider directly using Provider.of
+  
     var callLogProvider = Provider.of<CallLogProvider>(context);
     var callLogs = callLogProvider.callLogs;
 

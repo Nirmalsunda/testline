@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:sales_app/colors.dart';
 import 'package:sales_app/home_page/drawer.dart';
 import 'package:sales_app/home_page/view_user_detail.dart';
-import 'package:sales_app/call%20_log/call_log_provider.dart';
+import 'package:sales_app/provider/call_log_provider.dart';
 import 'package:sales_app/provider/user_provider.dart';
 import 'package:shimmer/shimmer.dart';
 
